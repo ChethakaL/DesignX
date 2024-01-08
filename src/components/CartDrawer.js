@@ -91,7 +91,7 @@ const CartDrawer = ({ isOpen, onClose }) => {
         <div style={{ marginTop: '20px', borderTop: '1px solid white', paddingTop: '10px' }}>
           <p style={{ color: 'white', fontWeight: 'bold' }}>Total Amount: ${totalAmount}</p>
           {checkoutError && <p style={{ color: 'red' }}>{checkoutError}</p>}
-          <button onClick={handlePayment}>Proceed Payment</button>
+          <button className='cartBtn' onClick={handlePayment}>Proceed Payment</button>
         </div>
       </div>
     </Drawer>

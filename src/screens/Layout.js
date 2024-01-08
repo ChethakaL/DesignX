@@ -90,11 +90,10 @@ const Layout = () => {
         <div className="left">
           <img src="../assets/logo.png" alt="Company Logo" />
           <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Varius pretium nunc purus pharetra semper diam leo.
-            Auctor enim risus, mattis nisl ut, aliquet consequat. Vestibulum non est vitae mi. Amet ut metus lorem,
-            sodales morbi.
+          Design X: Elevate Your Style
+Discover a world where innovation meets elegance with Design X. Embrace individuality, make a statement, and redefine your style with Design X.
           </p>
-          <div className="social-icons">
+          <div className="social-icons" style={{padding:'20px'}}>
             <Facebook />
             <Instagram />
             <Twitter />

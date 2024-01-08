@@ -18,11 +18,12 @@ function PaymentScreen() {
   }
 
   return (
-    <div style={{ color: 'white' }}>
-      <h2 color='white'>PaymentScreen</h2>
-      {/* Display product details */}
+    <div style={{ color: 'white' }} className='payment-screen'>
+      <h2 color='white' style={{fontSize:'32px'}}>PaymentScreen</h2>
+      <div className='form-container' style={{display:'flex', flexDirection:'column'}}>
+        {/* Display product details */}
       {productDetails.map((product, index) => (
-        <div key={index}>
+        <div key={index} className='payment-details'>
           <p>Product Code: {product.productCode}</p>
           <p>Quantity: {product.quantity}</p>
           <p>Color: {product.color}</p>
@@ -48,6 +49,7 @@ function PaymentScreen() {
         // Assuming quantity is the sum of all products' quantity
         quantity={productDetails.reduce((sum, product) => sum + product.quantity, 0)}
       />
+      </div>
     </div>
   );
 }

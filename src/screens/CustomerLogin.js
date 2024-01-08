@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { useNavigate } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import axios from 'axios';
 function CustomerLogin() {
     const navigate = useNavigate();
@@ -35,11 +35,15 @@ function CustomerLogin() {
         }
     };
 
+    const handleRegister = () => {
+        navigate("/customer-register");
+    }
+
   return (
     <div className='login-container'>
         <div className='glass-container'>
             <div className='row' style={{width:'100%', justifyContent:'space-between', alignItems:'center', marginBottom:'3%'}}>
-                <h1 style={{margin:0, padding:0}}>Admin Panel</h1>
+                <h1 style={{margin:0, padding:0}}>Login Page</h1>
                 <img src='../assets/Logo.png' width='100px' height='30px'/>
             </div>
             <img src='https://img.freepik.com/free-vector/computer-login-concept-illustration_114360-7962.jpg?w=826&t=st=1704448559~exp=1704449159~hmac=692c016000f5b44f4fe7781c9153ef2bd339649cb93e9592d3a49b352fa2d1f7' width='300px' style={{borderRadius:20}}/>
@@ -58,6 +62,7 @@ function CustomerLogin() {
                 </div>
                 <button class="ui secondary button" onClick={handleLogin} style={{justifyContent:'center', width: '400px'}}>Login</button>
             </form>
+            <button class="ui primary button" onClick={handleRegister} style={{justifyContent:'center', width: '400px', marginTop:'10px'}}>Register</button>
         </div>   
     </div>
   )

@@ -1,4 +1,3 @@
-
 import { Divider } from '@mui/material';
 import React, { useEffect, useState } from 'react';
 import Review from '../components/Review';
@@ -179,12 +178,12 @@ function Product() {
               value={quantity}
               onChange={handleQuantityChange}
             />
-            <button onClick={handleAddToCart} disabled={!localStorage.getItem('token') || isOutOfStock}>
+            <button onClick={handleAddToCart} disabled={!localStorage.getItem('token') || isOutOfStock} className='addCart'>
               Add to Cart
             </button>
             {isOutOfStock && <p style={{ color: 'red' }}>No Stock</p>}
           </div>
-          <h2>Rs. {product.productPrice}</h2>
+          <h2>$. {product.productPrice}</h2>
           <PaypalButton onApprove={onApprove} disabled={!localStorage.getItem('token') || isOutOfStock} productPrice={product.productPrice} quantity={quantity} />
           <Divider style={{ marginTop: 20 }}></Divider>
         </div>

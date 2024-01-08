@@ -19,6 +19,13 @@ function Profile() {
         }
     }, []);
 
+    useEffect(() => {
+        // Fetch purchases whenever the user state changes
+        if (user) {
+          fetchPurchaseOrders();
+        }
+      }, [user]);
+
     const fetchUserProfile = async () => {
         try {
         const response = await axios.get('http://localhost:4000/api/customer/profile', {
@@ -53,9 +60,14 @@ function Profile() {
       
 
 
-    const handleLogout = ()=>{
-        navigate('/customer-login');
-    }
+      const handleLogout = () => {
+        // Remove the token from localStorage
+        localStorage.removeItem('token');
+        // Navigate to the home page
+        navigate('/');
+      };
+
+      
   return (
     <div>
         <h1 className='heading-text'>Profile</h1>
@@ -137,7 +149,7 @@ function Profile() {
             <div className='form-container'>
                 <h2 className='heading-text' style={{fontSize:25}}>Managing Orders</h2>
                 {purchases.map((purchase) => (
-                    <div key={purchase._id} className='order-item'>
+                    <div key={purchase._id} className='order-item' style={{marginBottom:'10px'}}>
                         <div className='order-sec-one'>
                         <div className='circle'>
                             <Truck size={32} />

@@ -175,7 +175,7 @@ export default function Grid() {
   };
   const handleDelete = async (id) => {
         try {
-          const response = await axios.delete(`http://localhost:4000/api/products/${id}`);
+          const response = await axios.delete(`http://localhost:4000/api/products/delete${id}`);
     
           if (response.status === 204) {
             setProducts((prevProducts) => prevProducts.filter((product) => product._id !== id));

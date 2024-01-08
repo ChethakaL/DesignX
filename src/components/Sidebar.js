@@ -1,31 +1,28 @@
+// Sidebar.js
 import React from 'react';
-import { ProSidebar, Menu, MenuItem, SubMenu } from 'react-pro-sidebar';
+import { ProSidebar, Menu, MenuItem } from 'react-pro-sidebar';
 import 'react-pro-sidebar/dist/css/styles.css';
+import { useNavigate } from 'react-router-dom';
 
 function Sidebar({ height }) {
+  const navigate = useNavigate();
+
+  const handleItemClick = (category) => {
+    // Redirect to the result page with the selected category
+    navigate(`/result/${category}`);
+  };
+
   return (
-    <div style={{ display: 'flex', height: {height}, minHeight: '400px' }}>
+    <div style={{ display: 'flex', height: { height }, minHeight: '400px' }}>
       <ProSidebar>
-        <h2 style={{padding:'20px'}}>Filter</h2>
+        <h2 style={{ padding: '20px' }}>Filter</h2>
         <Menu iconShape="square">
-          <SubMenu title="Categories" icon={<span>🧥</span>}>
-            <MenuItem>Tops</MenuItem>
-            <MenuItem>Bottoms</MenuItem>
-            <MenuItem>Dresses</MenuItem>
-            <MenuItem>Outerwear</MenuItem>
-          </SubMenu>
-          <SubMenu title="Colors" icon={<span>🌈</span>}>
-            <MenuItem>Red</MenuItem>
-            <MenuItem>Blue</MenuItem>
-            <MenuItem>Green</MenuItem>
-            <MenuItem>Black</MenuItem>
-          </SubMenu>
-          <SubMenu title="Sizes" icon={<span>📏</span>}>
-            <MenuItem>Small</MenuItem>
-            <MenuItem>Medium</MenuItem>
-            <MenuItem>Large</MenuItem>
-            <MenuItem>X-Large</MenuItem>
-          </SubMenu>
+          <MenuItem onClick={() => handleItemClick('T-Shirt')}>T-Shirt</MenuItem>
+          <MenuItem onClick={() => handleItemClick('Shirt')}>Shirt</MenuItem>
+          <MenuItem onClick={() => handleItemClick('Dresses')}>Dresses</MenuItem>
+          <MenuItem onClick={() => handleItemClick('Crop Tops')}>Crop Tops</MenuItem>
+          <MenuItem onClick={() => handleItemClick('Trousers')}>Trousers</MenuItem>
+          <MenuItem onClick={() => handleItemClick('Skirt')}>Skirt</MenuItem>
         </Menu>
       </ProSidebar>
     </div>
